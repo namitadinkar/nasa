@@ -1,0 +1,15 @@
+<div class="container">
+    <h2>Favourites</h2>
+
+    <div *ngIf="favourites.length == 0">No Favorites Added</div>
+
+    <div *ngFor="let favourite of favourites; let i = index">
+        <img [src]="favourite.imageUrl" alt="Favourite Image">
+        <p>Title: {{ favourite.title }}</p>
+        <p>Explanation: {{ favourite.explanation }}</p>
+        <button (click)="removeFromFavourites(i)" class="btn btn-secondary">Remove</button>
+    </div>
+
+</div>
+  
+

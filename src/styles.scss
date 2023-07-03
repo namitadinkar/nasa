@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// .container {
+//     display: flex;
+//     flex-wrap: wrap;
+//     margin: 50px;
+//   }
+  img{
+    display: flex;
+    align-items: center;
+    height: 500px;
+    width: 500px;
+    margin: 10px 50px;
+  }
+
+  a{
+    color: white;
+    font-size: 15px;
+  }
+.navbar{
+    justify-content: start;
+    padding: 22px
+}
+.navbar-brand{
+padding-left: 40px;
+}

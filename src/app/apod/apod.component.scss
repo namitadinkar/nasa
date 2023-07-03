@@ -1,0 +1,36 @@
+  .apod-item {
+    margin: 20px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .apod-explanation {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f1f1f1;
+  }
+
+.button{
+    margin: 0 40%;
+
+}
+
+.apod-image{
+    height: 300px;
+    width: 300px;
+}
+
+.apod-text{
+    position: relative;
+    right:10%
+}
+
+.heading{
+    background-color: #ffe4c4;
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }

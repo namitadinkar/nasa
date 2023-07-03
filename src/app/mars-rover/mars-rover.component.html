@@ -1,0 +1,62 @@
+<!-- <h2>Mars Rover Photos</h2>
+<select [(ngModel)]="selectedRover">
+  <option value="curiosity">Curiosity</option>
+  <option value="opportunity">Opportunity</option>
+  <option value="spirit">Spirit</option>
+</select>
+<select [(ngModel)]="selectedSol">
+  <option value="1">Sol 1</option>
+  <option value="2">Sol 2</option>
+  <option value="3">Sol 3</option>
+</select>
+<img [src]="photos.[0].imageUrl" alt="Mars Rover Photo">
+<p>{{photos.[0].sol}}</p>
+<p>{{photos.[0].explanation}}</p> -->
+
+<div class="container">
+    <h2>Mars Rover Photos</h2>
+    <div class="form-group">
+        <label for="mars rover">Mars Rover</label>
+        <div class="custom-dropdown">
+
+            <select class="form-control w-25" [(ngModel)]="selectedRover" placeholder="select the rover">
+            <!-- <option value="" disabled selected>Select the rover</option> -->
+            <option value="curiosity">Curiosity</option>
+            <option value="opportunity">Opportunity</option>
+            <option value="spirit">Spirit</option>
+            </select>
+        </div>
+</div>
+    <label for="sol" >Martian Day</label>
+    <input class="form-control w-25" [(ngModel)]="inputSol" type="number" placeholder="Provide the required sol">
+    <button (click)="showMarsRoverPhotos()" class="btn btn-primary mt-2">Submit</button>
+    
+    <div *ngIf="photos?.length > 0">
+        <mat-card>
+          <mat-card-content>
+            <div class="row">
+              <div class="col-md-4 mb-4" *ngFor="let photo of photosPerPage">
+                <mat-card>
+                  <img [src]="photo.img_src" [alt]="photo.id" class="image">
+                  <mat-card-content>
+                    <p>Date Taken: {{ photo.earth_date }}</p>
+                  </mat-card-content>
+                  <mat-card-actions>
+                    <a [href]="photo.img_src" target="_blank" class="btn btn-link">View Full-Size Image</a>
+                  </mat-card-actions>
+                </mat-card>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+    
+        <mat-paginator [length]="photos?.length"
+                       [pageSize]="pageSize"
+                       aria-label="Select page"
+                       (page)="handlePageChange($event)"></mat-paginator>
+    </div>
+    
+   
+</div>
+
+

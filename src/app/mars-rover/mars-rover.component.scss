@@ -1,0 +1,42 @@
+.rover-selector {
+    margin-bottom: 10px;
+  }
+  
+  .sol-selector {
+    margin-bottom: 10px;
+  }
+  
+  .photos {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  img {
+    width: 250px;
+    margin: 10px;
+  }
+  
+  .pagination {
+    text-align: center;
+  }
+  .custom-dropdown {
+    position: relative;
+    // display: inline-block;
+  }
+  
+  .custom-dropdown::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 23%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 5px 0 5px;
+    border-color: #000 transparent transparent transparent;
+  }
+  .image{
+    width: 100%;
+    height: auto;
+  }

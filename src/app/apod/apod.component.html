@@ -1,0 +1,42 @@
+<h1 class="text-center heading">ASTRONOMY PICTURE OF THE DAY (APOD)</h1>
+
+<div class="container">
+
+    <h2 class="text-center">{{apod?.title}}</h2>
+    <div class="row">
+        <div class="col-md-6">
+          <img class="rounded mx-auto d-block apod-image" [src]="apod?.hdurl" alt="APOD Image">
+        </div>
+        <div class="col-md-6 apod-text">
+          <p class="m-5">{{apod?.explanation}}</p>
+        </div>
+      </div>
+
+    <button type="button" class="btn btn-primary button" (click)="getLastWeekApods()"  >Show Last 7 days APODs</button>
+    <div *ngFor="let apod of apodList; let i = index" class="apod-item">
+        <h2 >{{ apod.title }}</h2>
+        <img class="rounded mx-auto d-block" [src]="apod.url" alt="APOD" (click)="showExplanation(apod)" >
+        <!-- <button (click)="addToFavourites(apod.url, apod.title, apod.explanation)">Add to Favorites</button> -->
+
+        <form *ngIf="!addedToFavorites[i] && showForm[i]" [formGroup]="titleForm" >
+            <!-- <label for="newTitle">Change Title:</label> -->
+            <input type="text" id="newTitle" formControlName="newTitle" placeholder="Change Title">
+            <button type="submit" (click)="addToFavourites(apod.url, apod.title, apod.explanation, i)" class="btn btn-info ms-4">Save</button>
+         </form>
+         
+         <button *ngIf="!showForm[i] && !addedToFavorites[i]" (click)="toggleForm(i)" class="btn btn-link">Add to Favourites</button>
+         <button *ngIf="addedToFavorites[i]" (click)="toggleForm(i)" class="btn btn-success">Added to Favourites</button>
+         <div *ngIf="selectedApod && selectedApod.url == apod.url">
+            <p>{{ apod.explanation }}</p>
+            <button (click)="closeExplanation()" >Hide</button>
+        </div>
+    </div>
+    <button mat-fab color="primary" class="scroll-to-top" (click)="scrollToTop()">
+        <mat-icon matTooltip="Scroll to Top">keyboard_arrow_up</mat-icon>
+      </button>
+</div>
+
+
+
+
+  
